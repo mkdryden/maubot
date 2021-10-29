@@ -1,8 +1,4 @@
-#!/bin/sh
-
-function fixperms {
-    chown -R $UID:$GID /var/log /data /opt/maubot
-}
+#!/bin/bash
 
 cd /opt/maubot
 
@@ -17,5 +13,4 @@ if [ ! -f /data/config.yaml ]; then
 fi
 
 alembic -x config=/data/config.yaml upgrade head
-fixperms
-exec su-exec $UID:$GID python3 -m maubot -c /data/config.yaml -b docker/example-config.yaml
+exec python3 -m maubot -c /data/config.yaml -b docker/example-config.yaml

@@ -9,3 +9,11 @@ asyncpg>=0.20,<0.25
 python-olm>=3,<4
 pycryptodome>=3,<4
 unpaddedbase64>=1,<2
+
+#/trumptweet
+pillow>=8.4.0<9
+
+#/inventory
+single-source>=0.2.0,<1
+ZODB>=5.6.0,<6
+RelStorage>=3.4.5,<4
