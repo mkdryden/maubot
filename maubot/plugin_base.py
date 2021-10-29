@@ -60,7 +60,9 @@ class Plugin(ABC):
     def register_handler_class(self, obj) -> None:
         warned_webapp = False
         for key in dir(obj):
-            val = getattr(obj, key)
+            if key.startswith('__') and key.endswith('__'):  # ignore magic attributes
+                 continue
+            val = getattr(obj, key, None)
             try:
                 if val.__mb_event_handler__:
                     self._handlers_at_startup.append((val, val.__mb_event_type__))
